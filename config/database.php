@@ -41,11 +41,11 @@ return [
 
         'mysql' => [
             'driver' => 'mysql',
-            'host' => env('localhost'),
+            'host' => 'localhost',
             'port' => env('DB_PORT', '3306'),
-            'database' => env('hcr_gmao'),
-            'username' => env('root'),
-            'password' => env(''),
+            'database' => 'hcr_gmao',
+            'username' => 'root',
+            'password' => '',
             'unix_socket' => env('DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
@@ -54,20 +54,7 @@ return [
             'engine' => null,
         ],
 
-        'mysql2' => [
-            'driver' => 'mysql',
-            'host' => env('localhost'),
-            'port' => env('DB_PORT', '3306'),
-            'database' => env('hcr_joomla'),
-            'username' => env('root'),
-            'password' => env(''),
-            'unix_socket' => env('DB_SOCKET', ''),
-            'charset' => 'utf8mb4',
-            'collation' => 'utf8mb4_unicode_ci',
-            'prefix' => '',
-            'strict' => true,
-            'engine' => null,
-        ],
+        
 
         'pgsql' => [
             'driver' => 'pgsql',
