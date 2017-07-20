@@ -18,3 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('proveedores', 'ProveedoresController@getIndex');
+Route::get('proveedores/insert', 'ProveedoresController@insertForm');
+Route::post('proveedores/add', 'ProveedoresController@insert');
