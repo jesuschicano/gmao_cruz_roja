@@ -20,3 +20,7 @@ Route::get('proveedores/borrar/{id}', 'ProveedoresController@borra');
 Route::get('proveedores/editar/{id}','ProveedoresController@preEdit');
 Route::post('proveedores/editar/{id}','ProveedoresController@editar');
 /** END BLOQUE PROVEEDORES **/
+
+/** BLOQUE INVENTARIO **/
+Route::get('inventario', 'InventarioController@getIndex');
+/** END BLOQUE INVENTARIO **/
