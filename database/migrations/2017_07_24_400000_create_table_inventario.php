@@ -18,25 +18,26 @@ class CreateTableInventario extends Migration
             $table->string('codigo');
             $table->integer('id_lugar')->unsigned();
             $table->integer('id_departamento')->unsigned();
-            $table->string('equipo');
-            $table->string('marca');
-            $table->string('modelo');
-            $table->string('numero_serie');
-            $table->integer('id_proveedor')->unsigned();
-            $table->date('fecha_compra');
-            $table->string('numero_factura');
-            $table->string('asiento_contable');
-            $table->double('precio', 15,2);// hasta 15 dígitos y 2 decimales
-            $table->date('fecha_baja');
-            $table->integer('id_motivo')->unsigned();
+            $table->string('equipo')->nullable();
+            $table->string('marca')->nullable();
+            $table->string('modelo')->nullable();
+            $table->string('numero_serie')->nullable();
+            $table->integer('id_proveedor')->nullable()->unsigned();
+            $table->date('fecha_compra')->nullable();
+            $table->string('numero_factura')->nullable();
+            $table->string('asiento_contable')->nullable();
+            $table->double('precio', 15,2)->nullable();// hasta 15 dígitos y 2 decimales
+            $table->date('fecha_baja')->nullable();
+            $table->integer('id_motivo')->nullable()->unsigned();
             $table->enum('tipo_mantenimiento', ['Preventivo', 'Correctivo']);
-            $table->integer('id_periodicidad')->unsigned();
-            $table->integer('id_empresa_mantenimiento')->unsigned();
-            $table->double('importe_contrato', 15, 2);
-            $table->date('fecha_ini_contrato');
-            $table->date('fecha_renovacion_contrato');
-            $table->string('comentarios');
-            $table->integer('conjunto')->unsigned();
+            $table->integer('id_periodicidad')->nullable()->unsigned();
+            $table->integer('id_empresa_mantenimiento')->nullable()->unsigned();
+            $table->double('importe_contrato', 15, 2)->nullable();
+            $table->date('fecha_ini_contrato')->nullable();
+            $table->date('fecha_renovacion_contrato')->nullable();
+            $table->string('comentarios')->nullable();
+            $table->integer('conjunto')->nullable()->unsigned();
+            $table->timestamps();
         });
     }
 

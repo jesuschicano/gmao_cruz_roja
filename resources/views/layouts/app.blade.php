@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
 <head>
     <meta charset="utf-8">
@@ -51,7 +50,9 @@
                                     Inventario <span class="caret"></span>
                                 </a>
                                 <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ url('inventario/old') }}">Ver artículos Helpdesk</a></li>
                                     <li><a href="{{ url('inventario') }}">Listar</a></li>
+                                    <li><a href="{{ url('inventario/create') }}">Insertar</a></li>
                                 </ul>
                             </li>
                             <li class="dropdown">
@@ -65,6 +66,25 @@
                             </li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Periodicidades <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ url('periodicidades') }}">Listar</a></li>
+                                    <li><a href="{{ url('periodicidades/create') }}">Insertar</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    Motivos de baja <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="{{ url('motivos') }}">Listar</a></li>
+                                    <li><a href="{{ url('motivos/create') }}">Insertar</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
 
@@ -95,7 +115,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script>
-        $("#borraProveedor").on("click", function(){
+        $("#borraProv,#borraPeriod,#borraMotivo,#borraItem").on("click", function(){
             return confirm("¿De verdad quiere eliminar este elemento?");
         });
     </script>
