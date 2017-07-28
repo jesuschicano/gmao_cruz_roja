@@ -31,6 +31,7 @@
 	              	<label for="lugar" class="col-xs-12 col-md-1 control-label">Lugar</label>
 	              	<div class="col-xs-12 col-md-5">
 										<select name="lugar" class="form-control">
+											<option disabled selected value> -- Seleccione una opción -- </option>
 											@foreach($lugares as $lugar)
 												<option value="{{ $lugar->id }}">{{ $lugar->name }}</option>
 											@endforeach
@@ -39,6 +40,7 @@
 	              	<label for="departamento" class="col-xs-12 col-md-2 control-label">Departamento</label>
 	              	<div class="col-xs-12 col-md-3">
 										<select name="departamento" class="form-control">
+											<option disabled selected value> -- Seleccione una opción -- </option>
 											@foreach($departamentos as $departamento)
 												<option value="{{ $departamento->department_id }}">{{ $departamento->dname }}</option>
 											@endforeach
@@ -72,6 +74,7 @@
 	              	<label for="proveedor" class="col-xs-12 col-md-1 control-label">Proveedor</label>
 	              	<div class="col-xs-12 col-md-5">
 										<select name="proveedor" class="form-control">
+											<option disabled selected value> -- Seleccione una opción -- </option>
 											@foreach($proveedores as $proveedor)
 												<option value="{{ $proveedor->id }}">{{ $proveedor->codigo}} - {{ $proveedor->nombre }}</option>
 											@endforeach
@@ -82,7 +85,7 @@
 	              <div class="form-group">
 	              	<label for="fecha_compra" class="col-xs-12 col-md-2 control-label">Fecha compra</label>
 	              	<div class="col-xs-12 col-md-4">
-										<input type="date" name="fecha_compra" class="form-control">
+										<input type="text" id="datepicker1" name="fecha_compra" class="form-control">
 	                </div>
 	              	<label for="observaciones" class="col-xs-12 col-md-2 control-label">Num. Factura</label>
 	              	<div class="col-xs-12 col-md-4">
@@ -101,11 +104,12 @@
 	              <div class="form-group">
 	              	<label for="fecha_baja" class="col-xs-12 col-md-2 control-label">Fecha de baja</label>
 									<div class="col-xs-12 col-md-4">
-										<input type="date" class="form-control" name="fecha_baja">
+										<input type="text" id="datepicker1" class="form-control" name="fecha_baja">
 									</div>
 									<label for="motivo" class="col-xs-12 col-md-2 control-label">Motivo</label>
 									<div class="col-xs-12 col-md-4">
 										<select name="motivo" class="form-control">
+											<option disabled selected value> -- Seleccione una opción -- </option>
 											@foreach($motivos as $motivo)
 												<option value="{{ $motivo->id }}">{{ $motivo->motivo }}</option>
 											@endforeach
@@ -127,6 +131,7 @@
 									<label for="periodicidad" class="col-xs-12 col-md-3 control-label">Periodicidad</label>
 									<div class="col-xs-12 col-md-9">
 										<select name="periodicidad" class="form-control">
+											<option disabled selected value> -- Seleccione una opción -- </option>
 											@foreach($periodicidades as $per)
 												<option value="{{ $per->id }}">{{ $per->periodicidad }}</option>
 											@endforeach
@@ -138,6 +143,7 @@
 									<label for="empresa_mantenimiento" class="col-xs-12 col-md-3 control-label">Empresa mantenimiento</label>
 									<div class="col-xs-12 col-md-9">
 										<select name="emp_mantenimiento" class="form-control">
+											<option disabled selected value> -- Seleccione una opción -- </option>
 											@foreach($proveedores as $proveedor)
 												<option value="{{ $proveedor->id }}">{{ $proveedor->nombre }}</option>
 											@endforeach
@@ -148,7 +154,7 @@
 	              <div class="form-group">
 	              	<label for="file_contrato" class="col-xs-12 col-md-2 control-label">Adjuntar contrato</label>
 									<div class="col-xs-12 col-md-10">
-										<input type="file" name="file_contrato" class="form-control">
+										<input type="file" name="file_contrato">
 									</div>
 	              </div>
 
@@ -159,11 +165,11 @@
 									</div>
 									<label for="inicio_contrato" class="col-xs-12 col-md-1 control-label">Incio contrato</label>
 									<div class="col-xs-12 col-md-3">
-										<input type="date" name="inicio_contrato" class="form-control">
+										<input type="text" id="datepicker1" name="inicio_contrato" class="form-control">
 									</div>
 									<label for="renovacion_contrato" class="col-xs-12 col-md-1 control-label">Renovación contrato</label>
 									<div class="col-xs-12 col-md-3">
-										<input type="date" name="renovacion_contrato" class="form-control">
+										<input type="text" id="datepicker1" name="renovacion_contrato" class="form-control">
 									</div>
 	              </div>
 

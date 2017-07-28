@@ -22,8 +22,8 @@ class CreateProveedoresTable extends Migration
             $table->string('poblacion');
             $table->string('provincia');
             $table->string('telefono');
-            $table->string('comercial');
-            $table->string('observaciones');
+            $table->string('comercial')->nullable();
+            $table->string('observaciones')->nullable();
             $table->timestamps();
         });
     }
