@@ -80,8 +80,8 @@
 	              	<label for="proveedor" class="col-xs-12 col-md-1 control-label">Proveedor</label>
 	              	<div class="col-xs-12 col-md-5">
 										<select name="proveedor" class="form-control">
-											<option selected value="{{ $itemProv->id }}">
-												{{ $itemProv->codigo }} - {{ $itemProv->nombre }}
+											<option selected value="{{ $itemProv[0]->id }}">
+												{{ $itemProv[0]->codigo }} - {{ $itemProv[0]->nombre }}
 											</option>
 											@foreach($proveedores as $proveedor)
 												<option value="{{ $proveedor->id }}">{{ $proveedor->codigo}} - {{ $proveedor->nombre }}</option>
@@ -117,8 +117,8 @@
 									<label for="motivo" class="col-xs-12 col-md-2 control-label">Motivo</label>
 									<div class="col-xs-12 col-md-4">
 										<select name="motivo" class="form-control">
-											<option selected value="{{ $itemMot->id }}">
-												{{ $itemMot->motivo }}
+											<option selected value="{{ $itemMot[0]->id }}">
+												{{ $itemMot[0]->motivo }}
 											</option>
 											@foreach($motivos as $motivo)
 												<option value="{{ $motivo->id }}">{{ $motivo->motivo }}</option>
@@ -139,25 +139,11 @@
 								</div>
 
 								<div class="form-group">
-									<label for="periodicidad" class="col-xs-12 col-md-3 control-label">Periodicidad</label>
-									<div class="col-xs-12 col-md-9">
-										<select name="periodicidad" class="form-control">
-											<option selected value="{{ $itemPeriod->id }}">
-												{{ $itemPeriod->periodicidad }}
-											</option>
-											@foreach($periodicidades as $per)
-												<option value="{{ $per->id }}">{{ $per->periodicidad }}</option>
-											@endforeach
-										</select>
-									</div>
-								</div>
-
-								<div class="form-group">
 									<label for="empresa_mantenimiento" class="col-xs-12 col-md-3 control-label">Empresa mantenimiento</label>
 									<div class="col-xs-12 col-md-9">
 										<select name="emp_mantenimiento" class="form-control">
-											<option selected value="{{ $itemMant->id }}">
-												 {{ $itemMant->nombre }}
+											<option selected value="{{ $itemMant[0]->id }}">
+												 {{ $itemMant[0]->nombre }}
 											</option>
 											@foreach($proveedores as $proveedor)
 												<option value="{{ $proveedor->id }}">{{ $proveedor->nombre }}</option>

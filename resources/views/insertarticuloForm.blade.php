@@ -30,7 +30,7 @@
 	              <div class="form-group">
 	              	<label for="lugar" class="col-xs-12 col-md-1 control-label">Lugar</label>
 	              	<div class="col-xs-12 col-md-5">
-										<select name="lugar" class="form-control">
+										<select name="lugar" class="form-control" required>
 											<option disabled selected value> -- Seleccione una opción -- </option>
 											@foreach($lugares as $lugar)
 												<option value="{{ $lugar->id }}">{{ $lugar->name }}</option>
@@ -39,7 +39,7 @@
 	                </div>
 	              	<label for="departamento" class="col-xs-12 col-md-2 control-label">Departamento</label>
 	              	<div class="col-xs-12 col-md-3">
-										<select name="departamento" class="form-control">
+										<select name="departamento" class="form-control" required>
 											<option disabled selected value> -- Seleccione una opción -- </option>
 											@foreach($departamentos as $departamento)
 												<option value="{{ $departamento->department_id }}">{{ $departamento->dname }}</option>
@@ -73,7 +73,7 @@
 	              <div class="form-group">
 	              	<label for="proveedor" class="col-xs-12 col-md-1 control-label">Proveedor</label>
 	              	<div class="col-xs-12 col-md-5">
-										<select name="proveedor" class="form-control">
+										<select name="proveedor" class="form-control" required>
 											<option disabled selected value> -- Seleccione una opción -- </option>
 											@foreach($proveedores as $proveedor)
 												<option value="{{ $proveedor->id }}">{{ $proveedor->codigo}} - {{ $proveedor->nombre }}</option>
@@ -108,7 +108,7 @@
 									</div>
 									<label for="motivo" class="col-xs-12 col-md-2 control-label">Motivo</label>
 									<div class="col-xs-12 col-md-4">
-										<select name="motivo" class="form-control">
+										<select name="motivo" class="form-control" required>
 											<option disabled selected value> -- Seleccione una opción -- </option>
 											@foreach($motivos as $motivo)
 												<option value="{{ $motivo->id }}">{{ $motivo->motivo }}</option>
@@ -116,7 +116,7 @@
 										</select>
 									</div>
 	              </div>
-									
+
 	              <div class="form-group">
 	              	<label for="tipo_mantenimiento" class="col-xs-12 col-md-3 control-label">Tipo de mantenimiento</label>
 									<div class="col-xs-12 col-md-9">
@@ -127,22 +127,11 @@
 									</div>
 								</div>
 
-								<div class="form-group">
-									<label for="periodicidad" class="col-xs-12 col-md-3 control-label">Periodicidad</label>
-									<div class="col-xs-12 col-md-9">
-										<select name="periodicidad" class="form-control">
-											<option disabled selected value> -- Seleccione una opción -- </option>
-											@foreach($periodicidades as $per)
-												<option value="{{ $per->id }}">{{ $per->periodicidad }}</option>
-											@endforeach
-										</select>
-									</div>
-								</div>
 
 								<div class="form-group">
 									<label for="empresa_mantenimiento" class="col-xs-12 col-md-3 control-label">Empresa mantenimiento</label>
 									<div class="col-xs-12 col-md-9">
-										<select name="emp_mantenimiento" class="form-control">
+										<select name="emp_mantenimiento" class="form-control" required>
 											<option disabled selected value> -- Seleccione una opción -- </option>
 											@foreach($proveedores as $proveedor)
 												<option value="{{ $proveedor->id }}">{{ $proveedor->nombre }}</option>
@@ -179,7 +168,7 @@
 										<textarea name="comentarios" class="form-control" rows="7"></textarea>
 									</div>
 	              </div>
-                
+
                 <button type="submit" class="btn btn-primary">Registrar</button>
 	            </form>
 	          </div><!--panel-body-->

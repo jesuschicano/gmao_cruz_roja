@@ -63,14 +63,11 @@ class InventarioController extends Controller
 		$proveedores = DB::table('proveedores')->get();
 		// recogida de los motivos
 		$motivos = DB::table('motivos')->get();
-		// recogida de las periodicidades
-		$periodicidades = DB::table('periodicidades')->get();
 
 		return view('insertarticuloForm', ['lugares'=>$lugares,
 																'departamentos'=>$departamentos,
 																'proveedores'=>$proveedores,
-																'motivos'=>$motivos,
-																'periodicidades'=>$periodicidades]);
+																'motivos'=>$motivos]);
 	}
 
 	public function store(Request $request){
@@ -91,7 +88,6 @@ class InventarioController extends Controller
 		$item->fecha_baja = $request->input('fecha_baja');
 		$item->id_motivo = $request->input('motivo');
 		$item->tipo_mantenimiento = $request->input('mantenimiento');
-		$item->id_periodicidad = $request->input('periodicidad');
 		$item->id_empresa_mantenimiento = $request->input('emp_mantenimiento');
 		$item->importe_contrato = $request->input('importe_contrato');
 		$item->fecha_ini_contrato = $request->input('inicio_contrato');
@@ -136,9 +132,14 @@ class InventarioController extends Controller
 							->get();
 
 		// recogida del proveedor al que pertenece el item
+		// +
+		// cerciorarnos de que tiene algo que enviar al form
 		$itemProv = DB::table('proveedores')
 								->where('id', $data->id_proveedor)
 								->get();
+		if( count($itemProv) == 0 ){
+			$itemProv = null;
+		}
 		// recogida de los proveedores
 		$proveedores = DB::table('proveedores')->get();
 
@@ -146,36 +147,34 @@ class InventarioController extends Controller
 		$itemMot = DB::table('motivos')
 								->where('id', $data->id_motivo)
 								->get();
+		if( count($itemMot) == 0 ){
+			$itemMot = null;
+		}
 		// recogida de los motivos
 		$motivos = DB::table('motivos')->get();
 
-		// recogida de los periodos del item en concreto
-		$itemPeriod = DB::table('periodicidades')
-									->where('id', $data->id_periodicidad)
-									->get();
-		// recogida de las periodicidades
-		$periodicidades = DB::table('periodicidades')->get();
 
 		// recogida de la empresa de mantenimiento encargada de
 		// el item en concreto
 		$itemMant = DB::table('proveedores')
 								->where('id', $data->id_empresa_mantenimiento)
 								->get();
+		if( count($itemMant) == 0 ){
+			$itemMant = null;
+		}
 
-		//dd($itemMant[0]);
+		//dd($itemProv);
 		return view('editforminventario', [
 																		'datos'=>$data,
 																		'itemLugar'=>$itemLugar[0],
 																		'lugares'=>$lugares,
 																		'itemDep'=>$itemDept[0],
 																		'departamentos'=>$departamentos,
-																		'itemProv'=>$itemProv[0],
+																		'itemProv'=>$itemProv,
 																		'proveedores'=>$proveedores,
-																		'itemMot'=>$itemMot[0],
+																		'itemMot'=>$itemMot,
 																		'motivos'=>$motivos,
-																		'itemPeriod'=>$itemPeriod[0],
-																		'periodicidades'=>$periodicidades,
-																		'itemMant'=>$itemMant[0]
+																		'itemMant'=>$itemMant
 																	]);
 	}
 
@@ -196,7 +195,6 @@ class InventarioController extends Controller
 		$item->fecha_baja = $request->input('fecha_baja');
 		$item->id_motivo = $request->input('motivo');
 		$item->tipo_mantenimiento = $request->input('mantenimiento');
-		$item->id_periodicidad = $request->input('periodicidad');
 		$item->id_empresa_mantenimiento = $request->input('emp_mantenimiento');
 		$item->importe_contrato = $request->input('importe_contrato');
 		$item->fecha_ini_contrato = $request->input('inicio_contrato');
