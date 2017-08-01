@@ -65,3 +65,10 @@ Route::post('inventario/update/{id}', 'InventarioController@update');
 /* BORRAR */
 Route::get('inventario/destroy/{id}', 'InventarioController@destroy');
 /** END BLOQUE INVENTARIO **/
+
+/** BLOQUE REVISIONES **/
+/***********************/
+/* LISTAR LAS REVISIONES POR ITEM */
+Route::get('revisiones/{id}', 'RevisionController@getIndex');
+
+/** END BLOQUE REVISIONES **/
