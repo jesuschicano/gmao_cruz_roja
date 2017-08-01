@@ -23,12 +23,15 @@
 	            	{{ csrf_field() }}
 
 	              <div class="form-group">
-	                <label for="period" class="col-xs-12 col-md-3 control-label">Periodicidad</label>
+	                <label for="period" class="col-xs-12 col-md-3 control-label">Introduce un número de días</label>
 	                <div class="col-xs-12 col-md-9">
-										<input type="text" class="form-control" name="period" required autofocus>
+										<div class="input-group">
+											<input type="number" class="form-control" name="period" required autofocus>
+											<div class="input-group-addon">días</div>
+										</div>
 	                </div>
 	              </div>
-                
+
                 <button type="submit" class="btn btn-primary">Registrar</button>
 	            </form>
 	          </div><!--panel-body-->

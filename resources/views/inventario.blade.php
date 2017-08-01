@@ -28,10 +28,10 @@
 					<td>{{ $x->name }}</td>
 					<td>{{ $x->dname }}</td>
 					<td>
-						<a href="" class="btn btn-warning">
-							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
+						<a href="inventario/edit/{{ $x->id }}" class="btn btn-warning" title="Modificar">
+							<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 						</a>
-						<a href="inventario/destroy/{{ $x->id }}" class="btn btn-danger" id="borraItem">
+						<a href="inventario/destroy/{{ $x->id }}" class="btn btn-danger" title="Borrar" id="borraItem">
 							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 						</a>
 					</td>

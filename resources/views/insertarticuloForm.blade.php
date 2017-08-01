@@ -85,7 +85,7 @@
 	              <div class="form-group">
 	              	<label for="fecha_compra" class="col-xs-12 col-md-2 control-label">Fecha compra</label>
 	              	<div class="col-xs-12 col-md-4">
-										<input type="text" id="datepicker1" name="fecha_compra" class="form-control">
+										<input type="text" name="fecha_compra" class="form-control picaFecha">
 	                </div>
 	              	<label for="observaciones" class="col-xs-12 col-md-2 control-label">Num. Factura</label>
 	              	<div class="col-xs-12 col-md-4">
@@ -104,7 +104,7 @@
 	              <div class="form-group">
 	              	<label for="fecha_baja" class="col-xs-12 col-md-2 control-label">Fecha de baja</label>
 									<div class="col-xs-12 col-md-4">
-										<input type="text" id="datepicker1" class="form-control" name="fecha_baja">
+										<input type="text" class="form-control picaFecha" name="fecha_baja">
 									</div>
 									<label for="motivo" class="col-xs-12 col-md-2 control-label">Motivo</label>
 									<div class="col-xs-12 col-md-4">
@@ -165,11 +165,11 @@
 									</div>
 									<label for="inicio_contrato" class="col-xs-12 col-md-1 control-label">Incio contrato</label>
 									<div class="col-xs-12 col-md-3">
-										<input type="text" id="datepicker1" name="inicio_contrato" class="form-control">
+										<input type="text" name="inicio_contrato" class="form-control picaFecha">
 									</div>
 									<label for="renovacion_contrato" class="col-xs-12 col-md-1 control-label">Renovación contrato</label>
 									<div class="col-xs-12 col-md-3">
-										<input type="text" id="datepicker1" name="renovacion_contrato" class="form-control">
+										<input type="text" name="renovacion_contrato" class="form-control picaFecha">
 									</div>
 	              </div>
 

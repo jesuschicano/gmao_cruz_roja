@@ -122,8 +122,10 @@
         });
         
         // para los input date
-        $('#datepicker1').datepicker({
-            dateFormat: "yy-mm-dd"
+        $('.picaFecha').datepicker({
+            dateFormat: "yy-mm-dd",
+            changeMonth: true,
+            changeYear: true
         });
     </script>
 </body>

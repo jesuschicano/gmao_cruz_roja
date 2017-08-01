@@ -23,16 +23,17 @@
 	            	{{ csrf_field() }}
 
 	              <div class="form-group">
-	                <label for="periodo" class="col-xs-12 col-md-3 control-label">Periodo</label>
-	                <div class="col-xs-12 col-md-9">
-										<input type="text" class="form-control" name="periodo" required autofocus value="{{ $datos->periodicidad }}">
-	                </div>
+									<label for="periodo" class="col-xs-12 col-md-3 control-label">Periodo</label>
+									<div class="input-group">
+										<input type="number" class="form-control" name="periodo" required autofocus value="{{ $datos->periodicidad }}">
+										<div class="input-group-addon">días</div>
+									</div>
 	              </div>
-	              
+
                 <button type="submit" class="btn btn-primary">Modificar</button>
 	            </form>
 	          </div><!--panel-body-->
-	          
+
 	      </div><!--panel-->
 	    </div><!--col-->
 	  </div><!--row-->

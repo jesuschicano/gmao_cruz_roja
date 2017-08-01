@@ -9,7 +9,7 @@
 				<div class="panel-body">No tienes permiso para estar aquí</div>
 			</div>
 		</div>
-         
+
 	@else
 		<h1>Estas son las periodicidades que hay configuradas</h1>
 		<table class="table table-striped table-bordered">
@@ -21,7 +21,7 @@
 		@foreach ($datos as $x)
 			<tr>
 				<td>{{ $x->id }}</td>
-				<td>{{ $x->periodicidad }}</td>
+				<td>{{ $x->periodicidad }} días</td>
 				<td>
 					<a href="periodicidades/edit/{{ $x->id }}" class="btn btn-warning">
 						<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
