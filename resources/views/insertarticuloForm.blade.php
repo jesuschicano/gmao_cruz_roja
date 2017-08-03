@@ -17,7 +17,7 @@
 	      	<div class="panel-heading text-center"><h2>Registro de un nuevo artículo<h2></div>
 
 	          <div class="panel-body">
-	            <form class="form-horizontal" method="POST" action="{{ url('/inventario/store') }}">
+	            <form class="form-horizontal" method="POST" action="/inventario/store">
 	            	{{ csrf_field() }}
 
 	              <div class="form-group">

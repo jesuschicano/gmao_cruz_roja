@@ -9,7 +9,7 @@
 				<div class="panel-body">No tienes permiso para estar aquí</div>
 			</div>
 		</div>
-         
+
 	@else
 		<h1>Estos son los motivos de baja que hay configurados</h1>
 		<table class="table table-striped table-bordered">

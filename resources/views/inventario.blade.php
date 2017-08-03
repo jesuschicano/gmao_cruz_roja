@@ -9,7 +9,7 @@
 				<div class="panel-body">No tienes permiso para estar aquí</div>
 			</div>
 		</div>
-         
+
 	@else
 		<h1>Consulta de artículos de GMAO</h1>
 		<input type="text" id="filter" onkeyup="buscaEquipo()" placeholder="Búsqueda por equipo..." class="form-control">
@@ -30,6 +30,9 @@
 					<td>
 						<a href="inventario/edit/{{ $x->id }}" class="btn btn-warning" title="Modificar">
 							<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+						</a>
+						<a href="revisiones/{{ $x->id }}" class="btn btn-default" title="Revisiones">
+							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
 						</a>
 						<a href="inventario/destroy/{{ $x->id }}" class="btn btn-danger" title="Borrar" id="borraItem">
 							<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>

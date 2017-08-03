@@ -57,6 +57,14 @@
                                 </ul>
                             </li>
                             <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                Revisiones <span class="caret"></span>
+                              </a>
+                              <ul class="dropdown-menu" role="menu">
+                                <li><a href="{{ url('revisiones/all') }}">Listar todas</a></li>
+                              </ul>
+                            </li>
+                            <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     Proveedores <span class="caret"></span>
                                 </a>
@@ -108,7 +116,7 @@
                 </div>
             </div>
         </nav>
-        
+
         @yield('content')
     </div>
 
@@ -116,17 +124,22 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- -->
+    @stack('funciones')
     <script>
-        $("#borraProv,#borraPeriod,#borraMotivo,#borraItem").on("click", function(){
-            return confirm("¿De verdad quiere eliminar este elemento?");
-        });
-        
-        // para los input date
-        $('.picaFecha').datepicker({
-            dateFormat: "yy-mm-dd",
-            changeMonth: true,
-            changeYear: true
-        });
+      $("#borraProv,#borraPeriod,#borraMotivo,#borraItem,#borraRev").on("click", function(){
+        return confirm("¿De verdad quiere eliminar este elemento?");
+      });
+
+      // para los input date
+      $('.picaFecha').datepicker({
+        dateFormat: "yy-mm-dd",
+        dayNamesMin: [ "Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa" ],
+        monthNamesShort: ["Ene","Feb","Mar","Abr","May","Jun","Jul","Ago","Sep","Oct","Nov","Dic"],
+        firstDay: 1,
+        changeMonth: true,
+        changeYear: true
+      });
     </script>
 </body>
 </html>

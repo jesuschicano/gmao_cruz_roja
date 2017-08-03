@@ -19,7 +19,7 @@
 	      	</div>
 
 	          <div class="panel-body">
-	            <form class="form-horizontal" method="POST" action="{{ url('/proveedores/add') }}">
+	            <form class="form-horizontal" method="POST" action="/proveedores/add">
 	            	{{ csrf_field() }}
 
 	              <div class="form-group">
@@ -76,7 +76,7 @@
 										<textarea class="form-control" name="observaciones" rows="3"></textarea>
 	                </div>
 	              </div>
-                
+
                 <button type="submit" class="btn btn-primary">Registrar</button>
 	            </form>
 	          </div><!--panel-body-->

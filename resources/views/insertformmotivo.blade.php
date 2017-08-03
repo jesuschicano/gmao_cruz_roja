@@ -8,7 +8,7 @@
 				<div class="panel-heading">Error</div>
 				<div class="panel-body">No tienes permiso para estar aquí</div>
 			</div>
-		</div>  
+		</div>
 	@else
 		<div class="container">
 		  <div class="row">
@@ -19,7 +19,7 @@
 		      	</div>
 
 	          <div class="panel-body">
-	            <form class="form-horizontal" method="POST" action="{{ url('/motivos/store') }}">
+	            <form class="form-horizontal" method="POST" action="/motivos/store">
 	            	{{ csrf_field() }}
 
 	              <div class="form-group">
@@ -28,7 +28,7 @@
 										<input type="text" class="form-control" name="motivo" required autofocus>
 	                </div>
 	              </div>
-                
+
                 <button type="submit" class="btn btn-primary">Registrar</button>
 	            </form>
 	          </div><!--panel-body-->
