@@ -55,18 +55,26 @@
                   </select>
                 </div>
 
-                <div class="form-group col-xs-12 col-md-4">
-                  <input type="text" id="rev_actual" name="rev_actual" class="form-control picaFecha" placeholder="Fecha de última revisión realizada" required>
+                <div class="form-group alert alert-info">
+									<label for="rev_actual">Fecha de última revisión realizada</label>
+                  <input type="text" id="rev_actual" name="rev_actual" class="form-control picaFecha" required>
                 </div>
-                <div class="form-group col-xs-12 col-md-4">
-                  <input type="text" id="prox_rev" name="prox_rev" class="form-control picaFecha" placeholder="Fecha de la próxima revisión" required>
+                <div class="form-group alert alert-info">
+									<label for="prox_rev">Fecha de la próxima revisión</label>
+                  <input type="text" id="prox_rev" name="prox_rev" class="form-control picaFecha" required>
                 </div>
-                <div class="form-group col-xs-12 col-md-4">
-                  <input type="text" id="aviso_rev" name="aviso_rev" class="form-control picaFecha" placeholder="Fecha de aviso hasta la próxima revisión">
+                <div class="form-group alert alert-warning">
+									<label for="aviso_rev">Fecha de aviso hasta la próxima revisión</label>
+                  <input type="text" id="aviso_rev" name="aviso_rev" class="form-control picaFecha" required>
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
 	            </form>
+
+							@if(session()->has('msg'))
+								<div class="alert alert-danger">La <b>fecha de aviso</b> debe ser anterior a la próxima revisión</div>
+							@endif
+
 	          </div><!--panel-body-->
 	      </div><!--panel-->
 	    </div><!--col-->
@@ -91,5 +99,7 @@
     //poner la nueva fecha en un nuevo string
     prox.val(result.getFullYear() + '-' + ("0"+(result.getMonth()+1)).slice(-2) + '-' + ("0"+result.getDate()).slice(-2) );
   });
+
+
   </script>
 @endpush

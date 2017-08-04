@@ -60,9 +60,14 @@ class RevisionController extends Controller
     $item->ultima_rev = $request->input('rev_actual');
     $item->prox_rev = $request->input('prox_rev');
     $item->aviso = $request->input('aviso_rev');
-    //guardar en la tabla
-    $item->save();
-    return redirect('inventario');
+
+    if($item->aviso > $item->prox_rev){
+      return redirect()->back()->with('msg',[]);
+    }else{
+      //guardar en la tabla
+      $item->save();
+      return redirect('inventario');
+    }
   }
 
   /**
