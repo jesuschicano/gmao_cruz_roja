@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use App\Inventario;
 use App\Revision;
 use App\Periodicidad;
+use Barryvdh\DomPDF\Facade;
 // imprescindible agregar el facade DB
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Query\Expression;
 
 class RevisionController extends Controller
 {
@@ -26,6 +28,33 @@ class RevisionController extends Controller
     }else{
       return view('listrevisiones', ['item'=>$item, 'revisiones'=>$query]);
     }
+  }
+
+  public function listAll(){
+    $link = DB::connection('mysql2')->getDatabaseName();
+
+    $revisiones = DB::table('revisiones')
+                  ->join('inventario', 'inventario.id', '=', 'revisiones.id_item')
+                  ->join(
+                    new Expression($link.'.jos_huruhelpdesk_departments'),
+                    'revisiones.id_depart',
+                    '=',
+                    new Expression($link.'.jos_huruhelpdesk_departments.department_id')
+                    )
+                  ->select('inventario.equipo',
+                  new Expression($link.'.jos_huruhelpdesk_departments.dname'),
+                  'descripcion',
+                  'grado',
+                  'ultima_rev',
+                  'prox_rev',
+                  'aviso')
+                  ->get();
+    return view('revisiones', ['revisiones'=>$revisiones]);
+  }
+
+  public function download(){
+    $pdf = PDF::loadVIew('revisiones');
+    return $pdf->download('informe-revisiones.pdf');
   }
 
   /**

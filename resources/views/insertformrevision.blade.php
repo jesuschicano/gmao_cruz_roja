@@ -19,6 +19,9 @@
 	      	</div>
 
 	          <div class="panel-body">
+							@if(session()->has('msg'))
+							<div class="alert alert-danger">La <b>fecha de aviso</b> debe ser anterior a la próxima revisión</div>
+							@endif
 	            <form class="form-horizontal container-fluid" method="POST" action="/revisiones/save/{{ $datos->id }}">
 	            	{{ csrf_field() }}
 
@@ -71,9 +74,6 @@
                 <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
 	            </form>
 
-							@if(session()->has('msg'))
-								<div class="alert alert-danger">La <b>fecha de aviso</b> debe ser anterior a la próxima revisión</div>
-							@endif
 
 	          </div><!--panel-body-->
 	      </div><!--panel-->

@@ -70,6 +70,7 @@ Route::get('inventario/destroy/{id}', 'InventarioController@destroy');
 /***********************/
 /* LISTAR LAS REVISIONES POR ITEM */
 Route::get('revisiones/{id}', 'RevisionController@getIndex');
+Route::get('revisiones', 'RevisionController@listAll');
 /* INSERTAR */
 Route::get('revisiones/create/{id}', 'RevisionController@create');
 Route::post('revisiones/save/{id}', 'RevisionController@save');
@@ -78,4 +79,6 @@ Route::get('revisiones/edit/{id}', 'RevisionController@edit');
 Route::post('revisiones/update/{id}', 'RevisionController@update');
 /* BORRAR */
 Route::get('revisiones/destroy/{id}', 'RevisionController@destroy');
+
+Route::get('revisiones/download/', 'RevisionController@download');
 /** END BLOQUE REVISIONES **/

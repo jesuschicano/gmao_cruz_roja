@@ -12,6 +12,8 @@
     <!-- Styles -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.css">
+    <!-- datatable -->
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.15/css/jquery.dataTables.min.css">
 </head>
 <body>
     <div id="app">
@@ -61,7 +63,7 @@
                                 Revisiones <span class="caret"></span>
                               </a>
                               <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('revisiones/all') }}">Listar todas</a></li>
+                                <li><a href="{{ url('revisiones') }}">Listar todas</a></li>
                               </ul>
                             </li>
                             <li class="dropdown">
@@ -124,6 +126,7 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="//cdn.datatables.net/1.10.15/js/jquery.dataTables.min.js"></script>
     <!-- -->
     @stack('funciones')
     <script>

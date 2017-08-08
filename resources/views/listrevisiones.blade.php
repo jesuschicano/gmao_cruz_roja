@@ -11,7 +11,7 @@
 		</div>
 
 	@else
-		<h1>Estas son las revisiones del artículo {{ $item->equipo }}</h1>
+		<h1>Estas son las revisiones del artí­culo {{ $item->equipo }}</h1>
     @if ( !isset($revisiones) )
 			<div class="alert alert-warning">
 				<strong>Parece que no hay revisiones.</strong> Puedas agregar una nueva pulsando en el botón de añadir.
