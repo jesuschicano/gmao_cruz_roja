@@ -53,8 +53,7 @@ class RevisionController extends Controller
   }
 
   public function download(){
-    $pdf = PDF::loadVIew('revisiones');
-    return $pdf->download('informe-revisiones.pdf');
+    
   }
 
   /**

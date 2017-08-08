@@ -35,7 +35,7 @@
       @endforeach
 		</table>
 	@endif
-	<a href="{{ action('RevisionController@download') }}" class="btn btn-default">Descargar informe</a>
+	<a href="{{ action('RevisionController@download') }}" class="btn btn-success">Descargar informe</a>
 	</div>
 @endsection
 
