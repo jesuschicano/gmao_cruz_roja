@@ -27,10 +27,10 @@
 				<td>{{ $x->telefono }}</td>
 				<td>{{ $x->comercial }}</td>
 				<td>
-					<a href="/proveedores/editar/{{ $x->id }}" class="btn btn-warning">
+					<a href="proveedores/editar/{{ $x->id }}" class="btn btn-warning">
 						<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 					</a>
-					<a href="/proveedores/borrar/{{ $x->id }}" class="btn btn-danger" id="borraProv">
+					<a href="proveedores/borrar/{{ $x->id }}" class="btn btn-danger" id="borraProv">
 						<span class="glyphicon glyphicon-trash" aria-hidden="true"></span>
 					</a>
 				</td>

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\Inventario;
 use App\Revision;
 use App\Periodicidad;
-use Barryvdh\DomPDF\Facade;
+
 // imprescindible agregar el facade DB
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Query\Expression;
@@ -50,10 +50,6 @@ class RevisionController extends Controller
                   'aviso')
                   ->get();
     return view('revisiones', ['revisiones'=>$revisiones]);
-  }
-
-  public function download(){
-    
   }
 
   /**
@@ -120,5 +116,25 @@ class RevisionController extends Controller
                                         'rev_dep'=>$rev_dept,
                                         'depart'=>$departamentos]);
   }
-  public function update($id, Request $request){}
+  public function update($id, Request $request){
+    // buscar la revisión a modificar del objeto indicado
+    $revision = Revision::where('id_item', $id)->first();
+    // recoger todos los datos
+    $revision->id_item = $id; 
+    $revision->descripcion = $request->input('descripcion');
+    $revision->period = $request->input('periodo');
+    $revision->grado = $request->input('grado');
+    $revision->id_depart = $request->input('dep');
+    $revision->ultima_rev = $request->input('rev_actual');
+    $revision->prox_rev = $request->input('prox_rev');
+    $revision->aviso = $request->input('aviso_rev');
+    // volver a comprobar que las fechas están dentro del rango
+    if($revision->aviso > $revision->prox_rev){
+      return redirect()->back()->with('msg',[]);
+    }else{
+      //guardar en la tabla
+      $revision->save();
+      return redirect('inventario');
+    }
+  }
 }

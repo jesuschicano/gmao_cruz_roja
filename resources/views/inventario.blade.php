@@ -12,7 +12,6 @@
 
 	@else
 		<h1>Consulta de artículos de GMAO</h1>
-		<input type="text" id="filter" onkeyup="buscaEquipo()" placeholder="Búsqueda por equipo..." class="form-control">
 		<table class="table" id="itemsGMAO">
 			<thead>
 				<th>Código</th>
@@ -43,26 +42,37 @@
 		</table>
 	@endif
 	</div>
-	<script type="text/javascript">
-		function buscaEquipo()
-		{
-			var input, filter, table, tr, td, i;
-			input = document.getElementById("filter");
-		  filter = input.value.toUpperCase();
-		  table = document.getElementById("itemsGMAO");
-		  tr = table.getElementsByTagName("tr");
-
-		  // Loop through all table rows, and hide those who don't match the search query
-		  for (i = 0; i < tr.length; i++) {
-		    td = tr[i].getElementsByTagName("td")[1];
-		    if (td) {
-		      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
-		        tr[i].style.display = "";
-		      } else {
-		        tr[i].style.display = "none";
-		      }
-		    }
-		  }//for
-		}//buscaEquipo()
-	</script>
 @endsection
+
+@push('funciones')
+	<script>
+    $(document).ready(function(){
+      $('#itemsGMAO').DataTable({
+        "language": {
+          "sProcessing":     "Procesando...",
+          "sLengthMenu":     "Mostrar _MENU_ registros",
+          "sZeroRecords":    "No se encontraron resultados",
+          "sEmptyTable":     "Ningún dato disponible en esta tabla",
+          "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+          "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+          "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+          "sInfoPostFix":    "",
+          "sSearch":         "Buscar:",
+          "sUrl":            "",
+          "sInfoThousands":  ",",
+          "sLoadingRecords": "Cargando...",
+          "oPaginate": {
+              "sFirst":    "Primero",
+              "sLast":     "Último",
+              "sNext":     "Siguiente",
+              "sPrevious": "Anterior"
+          },
+          "oAria": {
+              "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+              "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+          }
+        }
+      });
+    });
+  </script>
+@endpush

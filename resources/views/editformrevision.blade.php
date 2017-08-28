@@ -19,7 +19,10 @@
 	      	</div>
 
 	          <div class="panel-body">
-	            <form class="form-horizontal container-fluid" method="POST" action="/revisiones/update/{{ $item->id }}">
+              @if(session()->has('msg'))
+               <div class="alert alert-danger">La <b>fecha de aviso</b> debe ser anterior a la próxima revisión</div>
+              @endif
+	            <form class="form-horizontal container-fluid" method="POST" action="{{ action('RevisionController@update', $item->id) }}">
 	            	{{ csrf_field() }}
 
 								<div class="form-group">
@@ -57,13 +60,16 @@
                   </select>
                 </div>
 
-                <div class="form-group col-xs-12 col-md-4">
+                <div class="form-group alert alert-info">
+                  <label for="">Fecha de última revisión realizada</label>
                   <input type="text" id="rev_actual" name="rev_actual" class="form-control picaFecha" placeholder="Fecha de última revisión realizada" required value="{{ $revision->ultima_rev }}">
                 </div>
-                <div class="form-group col-xs-12 col-md-4">
+                <div class="form-group alert alert-info">
+                  <label for="">Fecha de la próxima revisión</label>
                   <input type="text" id="prox_rev" name="prox_rev" class="form-control picaFecha" placeholder="Fecha de la próxima revisión" required value="{{ $revision->prox_rev }}">
                 </div>
-                <div class="form-group col-xs-12 col-md-4">
+                <div class="form-group alert alert-warning">
+                  <label for="">Fecha de aviso hasta la próxima revisión</label>
                   <input type="text" id="aviso_rev" name="aviso_rev" class="form-control picaFecha" placeholder="Fecha de aviso hasta la próxima revisión" required value="{{ $revision->aviso }}">
                 </div>
 

@@ -17,8 +17,13 @@
 	      	<div class="panel-heading text-center"><h2>Registro de un nuevo artículo<h2></div>
 
 	          <div class="panel-body">
-	            <form class="form-horizontal" method="POST" action="/inventario/store">
+	            <form class="form-horizontal" method="POST" action="{{ url('inventario/store') }}" enctype="multipart/form-data">
 	            	{{ csrf_field() }}
+
+	            	<div class="form-group">
+	            		<label for="avatar" class="control-label">Subir avatar</label>
+	            		<input type="file" name="avatar">
+	            	</div>
 
 	              <div class="form-group">
 	                <label for="codigo" class="col-xs-12 col-md-1 control-label">Código</label>

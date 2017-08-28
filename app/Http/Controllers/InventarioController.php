@@ -8,6 +8,7 @@ use App\Proveedor;
 // imprescindible agregar el facade DB
 use Illuminate\Support\Facades\DB;
 use Illuminate\Database\Query\Expression;
+use Illuminate\Support\Facades\Storage;
 
 class InventarioController extends Controller
 {
@@ -89,10 +90,26 @@ class InventarioController extends Controller
 		$item->id_motivo = $request->input('motivo');
 		$item->tipo_mantenimiento = $request->input('mantenimiento');
 		$item->id_empresa_mantenimiento = $request->input('emp_mantenimiento');
+
+		// almacenamiento del contrato
+		$contrato = $request->file('file_contrato');
+
+		$ext = $contrato->extension();
+		// generar la fecha para  ponerle un nombre
+		$hoy = getdate();
+		$y = $hoy["year"];
+		$m = $hoy["mon"];
+		$d = $hoy["mday"];
+
+		$contrato->storeAs('contratos/' . $item->codigo, 'contrato' . $y . $m . $d . '.' . $ext);
+		// el storeAs guarda el contrato con el nombre "contrato-FechaDeHoy.ExtQueTenga"
+		// dentro de la carpeta contratos/
+
 		$item->importe_contrato = $request->input('importe_contrato');
 		$item->fecha_ini_contrato = $request->input('inicio_contrato');
 		$item->fecha_renovacion_contrato = $request->input('renovacion_contrato');
 		$item->comentarios = $request->input('comentarios');
+
 		$item->save();
 		return redirect('inventario');
 	}
@@ -163,7 +180,9 @@ class InventarioController extends Controller
 			$itemMant = null;
 		}
 
-		//dd($itemProv);
+		// recogida de todos los contratos subidos para este articulo
+		$contratos = Storage::disk('public')->allFiles('contratos/' . $data->codigo);
+		dd($contratos);
 		return view('editforminventario', [
 																		'datos'=>$data,
 																		'itemLugar'=>$itemLugar[0],
@@ -174,7 +193,8 @@ class InventarioController extends Controller
 																		'proveedores'=>$proveedores,
 																		'itemMot'=>$itemMot,
 																		'motivos'=>$motivos,
-																		'itemMant'=>$itemMant
+																		'itemMant'=>$itemMant,
+																		'contratos'=>$contratos
 																	]);
 	}
 

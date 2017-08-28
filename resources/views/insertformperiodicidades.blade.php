@@ -19,7 +19,7 @@
 	      	</div>
 
 	          <div class="panel-body">
-	            <form class="form-horizontal" method="POST" action="/periodicidades/store">
+	            <form class="form-horizontal" method="POST" action="{{ url('periodicidades/store') }}">
 	            	{{ csrf_field() }}
 
 	              <div class="form-group">

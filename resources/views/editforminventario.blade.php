@@ -19,7 +19,7 @@
 	      	</div>
 
 	          <div class="panel-body">
-	            <form class="form-horizontal" method="POST" action="/inventario/update/{{ $datos->id }}">
+	            <form class="form-horizontal" method="POST" action="{{ action('InventarioController@update', $datos->id) }}">
 	            	{{ csrf_field() }}
 
 	              <div class="form-group">

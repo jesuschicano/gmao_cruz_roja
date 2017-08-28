@@ -19,7 +19,7 @@
 	      	</div>
 
 	          <div class="panel-body">
-	            <form class="form-horizontal" method="POST" action="/proveedores/editar/{{ $item->id }}">
+	            <form class="form-horizontal" method="POST" action="{{ action('ProveedoresController@editar', $item->id) }}">
 	            	{{ csrf_field() }}
 
 	              <div class="form-group">

@@ -11,12 +11,12 @@
 		</div>
 
 	@else
-		<h1>Estas son las revisiones del artí­culo {{ $item->equipo }}</h1>
+		<h1>Estas son las revisiones del artículo {{ $item->equipo }}</h1>
     @if ( !isset($revisiones) )
 			<div class="alert alert-warning">
 				<strong>Parece que no hay revisiones.</strong> Puedas agregar una nueva pulsando en el botón de añadir.
 			</div>
-			<a href="/revisiones/create/{{ $item->id }}" class="btn btn-primary btn-lg">Añadir</a>
+			<a href="{{ action('RevisionController@create', $item->id) }}" class="btn btn-primary btn-lg">Añadir</a>
 		@else
 			<table class="table">
 				<thead>
@@ -35,7 +35,7 @@
 						<td>{{ $rev->period }} día(s)</td>
 						<td>{{ $rev->prox_rev }}</td>
 						<td>
-							<a href="/revisiones/edit/{{ $rev->id }}" class="btn btn-warning">
+							<a href="{{ action('RevisionController@edit', $rev->id) }}" class="btn btn-warning">
 								<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
 							</a>
 							<a href="/revisiones/destroy/{{ $rev->id }}" class="btn btn-danger" id="borraRev">
@@ -45,7 +45,7 @@
 					</tr>
 				@endforeach
 			</table>
-			<a href="/revisiones/create/{{ $item->id }}" class="btn btn-primary btn-lg">Añadir</a>
+			<a href="{{ action('RevisionController@create', $item->id) }}" class="btn btn-primary btn-lg">Añadir</a>
     @endif
 	@endif
 	</div>
