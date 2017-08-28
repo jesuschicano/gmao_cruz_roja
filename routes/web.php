@@ -3,6 +3,7 @@ Route::get('/', function () {
     return redirect('/home');
 });
 
+
 /** BLOQUE AUTENTIFICACION **/
 /*******/
 Auth::routes();
@@ -43,7 +44,7 @@ Route::get('motivos/destroy/{id}', 'MotivosController@destroy');
 Route::get('periodicidades', 'PeriodicidadesController@index');
 /* INSERTAR */
 Route::get('periodicidades/create', 'PeriodicidadesController@create');
-Route::post('periodicidades/store/', 'PeriodicidadesController@store');
+Route::post('periodicidades/store', 'PeriodicidadesController@store');
 /* EDITAR */
 Route::get('periodicidades/edit/{id}', 'PeriodicidadesController@edit');
 Route::post('periodicidades/update/{id}', 'PeriodicidadesController@update');
@@ -82,3 +83,10 @@ Route::get('revisiones/destroy/{id}', 'RevisionController@destroy');
 
 Route::get('revisiones/download/', 'RevisionController@download');
 /** END BLOQUE REVISIONES **/
+
+/** BLOQUE DE INFORMES **/
+/************************/
+/* LISTAR LOS ENLACES A LAS REVISIONES */
+Route::get('informes', 'PDFController@index');
+Route::get('informes/revisiones', 'PDFController@crearInformeTodasRevisiones');
+/** END BLOQUE DE INFORMES **/
