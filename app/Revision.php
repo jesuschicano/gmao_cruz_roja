@@ -8,5 +8,5 @@ class Revision extends Model
 {
   protected $table = 'revisiones';
   protected $primarykey = 'id';
-  protected $fillable = ['grado','untima_rev','prox_rev','period','aviso'];
+  protected $fillable = ['grado','untima_rev','prox_rev','period','aviso','correo'];
 }

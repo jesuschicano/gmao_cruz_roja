@@ -84,6 +84,7 @@ class RevisionController extends Controller
     $item->ultima_rev = $request->input('rev_actual');
     $item->prox_rev = $request->input('prox_rev');
     $item->aviso = $request->input('aviso_rev');
+    $item->correo = $request->input('correo');
 
     if($item->aviso > $item->prox_rev){
       return redirect()->back()->with('msg',[]);
@@ -118,9 +119,12 @@ class RevisionController extends Controller
   }
   public function update($id, Request $request){
     // buscar la revisión a modificar del objeto indicado
-    $revision = Revision::where('id_item', $id)->first();
+    $revision = Revision::where([
+        ['id', $id],
+        ['id_item', $request->input('id_item')]
+      ])->first();
     // recoger todos los datos
-    $revision->id_item = $id; 
+    $revision->id_item = $request->input('id_item');
     $revision->descripcion = $request->input('descripcion');
     $revision->period = $request->input('periodo');
     $revision->grado = $request->input('grado');

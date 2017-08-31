@@ -22,8 +22,10 @@
               @if(session()->has('msg'))
                <div class="alert alert-danger">La <b>fecha de aviso</b> debe ser anterior a la próxima revisión</div>
               @endif
-	            <form class="form-horizontal container-fluid" method="POST" action="{{ action('RevisionController@update', $item->id) }}">
+	            <form class="form-horizontal container-fluid" method="POST" action="{{ action('RevisionController@update', $revision->id) }}">
 	            	{{ csrf_field() }}
+
+								<input type="hidden" value="{{ $item->id }}" name="id_item">
 
 								<div class="form-group">
 									<label for="descripcion">Una breve descripción</label>
@@ -59,6 +61,11 @@
 										@endforeach
                   </select>
                 </div>
+
+								<div class="form-group">
+									<label for="correo">E-mail que recibirá el aviso</label>
+									<input type="text" name="correo" class="form-control" value="{{ $revision->correo }}" required>
+								</div>
 
                 <div class="form-group alert alert-info">
                   <label for="">Fecha de última revisión realizada</label>

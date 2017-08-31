@@ -58,6 +58,11 @@
                   </select>
                 </div>
 
+								<div class="form-group">
+									<label for="correo">E-mail que recibirá el aviso</label>
+									<input type="text" name="correo" class="form-control" required>
+								</div>
+
                 <div class="form-group alert alert-info">
 									<label for="rev_actual">Fecha de última revisión realizada</label>
                   <input type="text" id="rev_actual" name="rev_actual" class="form-control picaFecha" required>
