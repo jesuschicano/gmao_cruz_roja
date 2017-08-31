@@ -90,3 +90,5 @@ Route::get('revisiones/download/', 'RevisionController@download');
 Route::get('informes', 'PDFController@index');
 Route::get('informes/revisiones', 'PDFController@crearInformeTodasRevisiones');
 /** END BLOQUE DE INFORMES **/
+
+Route::get('/send','SendController@mandarAviso');
