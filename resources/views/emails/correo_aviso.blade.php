@@ -7,6 +7,7 @@
     $equipo = $revisiones->equipo;
     $name = $revisiones->name;
     $descripcion = $revisiones->descripcion;
+    $correo_destino = $revisiones->correo;
 
     $mesg = "El próximo día <strong style='color:red;'>" . $aviso . "</strong> se revisará el artículo <u>" . $equipo . "</u> que se encuentra en <u>" . $name . "</u>. Observación: ".$descripcion;
 
@@ -16,7 +17,7 @@
     'X-Mailer: PHP/' . phpversion();
 
     //( to, asunto, message, headers);
-    mail("jesus@iniciativasmultimedia.com", "Revisión programada 2", $mesg, $headers);
+    mail($correo_destino, "Revisión programada 2", $mesg, $headers);
   ?>
 </div>
 @endsection
