@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="container">
+	<div class="container-fluid">
 	@if (Auth::guest())
 		<div class="col-xs-12 col-md-4 col-md-offset-4">
 			<div class="panel panel-danger">
@@ -9,9 +9,9 @@
 				<div class="panel-body">No tienes permiso para estar aquí</div>
 			</div>
 		</div>
-         
+
 	@else
-		<h1>Consulta de artículos en helpdesk</h1>
+		<h1 class="text-center">Consulta de artículos en helpdesk</h1>
 		<table class="table" id="itemsHelpdesk">
 			<thead>
 				<th>#</th>

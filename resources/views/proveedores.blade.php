@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-	<div class="container">
+	<div class="container-fluid">
 	@if (Auth::guest())
 		<div class="col-xs-12 col-md-4 col-md-offset-4">
 			<div class="panel panel-danger">
@@ -11,8 +11,8 @@
 		</div>
 
 	@else
-		<h1>Estos son los proveedores</h1>
-		<table class="table table-striped table-bordered">
+		<h1 class="text-center">Listado de proveedores</h1>
+		<table class="table table-striped table-bordered" id="listaProveedores">
 		<thead>
 			<th>Código</th><th>DNI/CIF</th><th>Nombre</th><th>Dirección</th><th>Población</th><th>Provincia</th><th>Teléfono</th><th>Comercial</th><th>Acciones</th>
 		</thead>
@@ -40,3 +40,36 @@
 	@endif
 	</div>
 @endsection
+
+@push('funciones')
+	<script>
+    $(document).ready(function(){
+      $('#listaProveedores').DataTable({
+        "language": {
+          "sProcessing":     "Procesando...",
+          "sLengthMenu":     "Mostrar _MENU_ registros",
+          "sZeroRecords":    "No se encontraron resultados",
+          "sEmptyTable":     "Ningún dato disponible en esta tabla",
+          "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+          "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+          "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+          "sInfoPostFix":    "",
+          "sSearch":         "Buscar:",
+          "sUrl":            "",
+          "sInfoThousands":  ",",
+          "sLoadingRecords": "Cargando...",
+          "oPaginate": {
+              "sFirst":    "Primero",
+              "sLast":     "Último",
+              "sNext":     "Siguiente",
+              "sPrevious": "Anterior"
+          },
+          "oAria": {
+              "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+              "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+          }
+        }
+      });
+    });
+  </script>
+@endpush

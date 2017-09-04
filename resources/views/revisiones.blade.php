@@ -35,10 +35,8 @@
       @endforeach
 		</table>
 	@endif
-	<a href="{{ action('RevisionController@download') }}" class="btn btn-success">Descargar informe</a>
 	</div>
 @endsection
-
 
 @push('funciones')
   <script>
