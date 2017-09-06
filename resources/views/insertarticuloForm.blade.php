@@ -21,11 +21,6 @@
 	            	{{ csrf_field() }}
 
 	            	<div class="form-group">
-	            		<label for="avatar" class="control-label">Subir avatar</label>
-	            		<input type="file" name="avatar">
-	            	</div>
-
-	              <div class="form-group">
 	                <label for="codigo" class="col-xs-12 col-md-1 control-label">Código</label>
 	                <div class="col-xs-12 col-md-3">
 										<input type="text" class="form-control" name="codigo" required autofocus>
@@ -142,13 +137,6 @@
 												<option value="{{ $proveedor->id }}">{{ $proveedor->nombre }}</option>
 											@endforeach
 										</select>
-									</div>
-	              </div>
-
-	              <div class="form-group">
-	              	<label for="file_contrato" class="col-xs-12 col-md-2 control-label">Adjuntar contrato</label>
-									<div class="col-xs-12 col-md-10">
-										<input type="file" name="file_contrato">
 									</div>
 	              </div>
 

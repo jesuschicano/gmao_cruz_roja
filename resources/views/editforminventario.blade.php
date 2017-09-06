@@ -153,13 +153,6 @@
 	              </div>
 
 	              <div class="form-group">
-	              	<label for="file_contrato" class="col-xs-12 col-md-2 control-label">Adjuntar contrato</label>
-									<div class="col-xs-12 col-md-10">
-										<input type="file" name="file_contrato">
-									</div>
-	              </div>
-
-	              <div class="form-group">
 	              	<label for="importe_contrato" class="col-xs-12 col-md-2 control-label">Importe contrato</label>
 									<div class="col-xs-12 col-md-2">
 										<input type="text" name="importe_contrato" class="form-control" value="{{ $datos->importe_contrato }}">

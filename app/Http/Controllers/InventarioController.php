@@ -90,21 +90,6 @@ class InventarioController extends Controller
 		$item->id_motivo = $request->input('motivo');
 		$item->tipo_mantenimiento = $request->input('mantenimiento');
 		$item->id_empresa_mantenimiento = $request->input('emp_mantenimiento');
-
-		// almacenamiento del contrato
-		$contrato = $request->file('file_contrato');
-
-		$ext = $contrato->extension();
-		// generar la fecha para  ponerle un nombre
-		$hoy = getdate();
-		$y = $hoy["year"];
-		$m = $hoy["mon"];
-		$d = $hoy["mday"];
-
-		$contrato->storeAs('contratos/' . $item->codigo, 'contrato' . $y . $m . $d . '.' . $ext);
-		// el storeAs guarda el contrato con el nombre "contrato-FechaDeHoy.ExtQueTenga"
-		// dentro de la carpeta contratos/
-
 		$item->importe_contrato = $request->input('importe_contrato');
 		$item->fecha_ini_contrato = $request->input('inicio_contrato');
 		$item->fecha_renovacion_contrato = $request->input('renovacion_contrato');

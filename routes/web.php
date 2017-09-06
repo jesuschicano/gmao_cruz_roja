@@ -91,4 +91,11 @@ Route::get('informes', 'PDFController@index');
 Route::get('informes/revisiones', 'PDFController@crearInformeTodasRevisiones');
 /** END BLOQUE DE INFORMES **/
 
+/** BLOQUE FICHEROS **/
+Route::get('subida/{id}', 'ArchivosController@create');
+Route::post('subida/store/{id}', 'ArchivosController@store');
+Route::get('ficheros/index', 'ArchivosController@index');
+Route::get('ficheros/get/{filename}', 'ArchivosController@get');
+/** END BLOQUE FICHEROS **/
+
 Route::get('/send','SendController@mandarAviso');

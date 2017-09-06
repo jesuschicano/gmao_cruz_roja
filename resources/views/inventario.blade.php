@@ -30,6 +30,9 @@
 						<a href="inventario/edit/{{ $x->id }}" class="btn btn-warning" title="Modificar">
 							<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
 						</a>
+						<a href="subida/{{ $x->id }}" class="btn btn-primary" title="Subir fichero">
+							<span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
+						</a>
 						<a href="revisiones/{{ $x->id }}" class="btn btn-default" title="Revisiones">
 							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
 						</a>
