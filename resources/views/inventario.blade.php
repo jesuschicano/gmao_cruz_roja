@@ -33,7 +33,10 @@
 						<a href="subida/{{ $x->id }}" class="btn btn-primary" title="Subir fichero">
 							<span class="glyphicon glyphicon-upload" aria-hidden="true"></span>
 						</a>
-						<a href="revisiones/{{ $x->id }}" class="btn btn-default" title="Revisiones">
+						<a href="ficheros/show/{{ $x->id }}" class="btn btn-primary" title="Ver ficheros">
+							<span class="glyphicon glyphicon-file" aria-hidden="true"></span>
+						</a>
+						<a href="revisiones/{{ $x->id }}" class="btn btn-info" title="Revisiones">
 							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
 						</a>
 						<a href="inventario/destroy/{{ $x->id }}" class="btn btn-danger" title="Borrar" id="borraItem">

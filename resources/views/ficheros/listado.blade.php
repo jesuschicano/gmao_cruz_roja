@@ -14,13 +14,21 @@
 	  <div class="row">
 	    <div class="col-xs-12 col-md-10 col-md-offset-1">
 	      <h3 class="text-center">Listado de ficheros</h3>
-        <ul>
-          @foreach($archivos as $file)
-            <li>
-              <a href="{{ action('ArchivosController@get', $file->filename) }}">{{ $file->original_filename }}</a>
-            </li>
-          @endforeach
-        </ul>
+				@if( isset($msg) )
+					<div class="alert alert-danger text-center">
+						{{ $msg }}
+					</div>
+				@else
+					<ul>
+	          @foreach($archivos as $file)
+	            <li>
+	              <a class="btn btn-link" href="{{ action('ArchivosController@get', $file->filename) }}">
+									{{ $file->original_filename }}
+								</a>
+	            </li>
+	          @endforeach
+	        </ul>
+				@endif
 	    </div><!--col-->
 	  </div><!--row-->
 	</div> <!-- container-->

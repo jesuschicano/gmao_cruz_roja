@@ -36,6 +36,19 @@ class ArchivosController extends Controller
     return redirect('inventario');
   }
 
+  public function show($id){
+    $archivos = Fileentry::where('id_item', '=', $id)->get();
+    // recoger todos los registros que correspondan al item seleccionado
+
+    if( $archivos->count() ){
+      // si ha encontrado archivos, los devuelve a la vista
+      return view('ficheros.listado', ['archivos' => $archivos]);
+    }else{
+      // sino prepara la vista con un mensaje de error
+      return view('ficheros.listado')->with('msg', 'No se han encontrado ficheros asociados a este artículo');
+    }
+  }
+
   public function get($filename){
     $entry = Fileentry::where('filename', '=', $filename)->FirstOrFail();
 
