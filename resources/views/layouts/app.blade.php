@@ -65,6 +65,7 @@
                               </a>
                               <ul class="dropdown-menu" role="menu">
                                 <li><a href="{{ url('revisiones') }}">Listar todas</a></li>
+                                <li><a href="{{ url('enviar') }}">Actualizar envíos</a></li>
                               </ul>
                             </li>
                             <li class="dropdown">

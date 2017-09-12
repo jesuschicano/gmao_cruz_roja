@@ -166,8 +166,6 @@ class InventarioController extends Controller
 		}
 
 		// recogida de todos los contratos subidos para este articulo
-		$contratos = Storage::disk('public')->allFiles('contratos/' . $data->codigo);
-		dd($contratos);
 		return view('editforminventario', [
 																		'datos'=>$data,
 																		'itemLugar'=>$itemLugar[0],
@@ -178,8 +176,7 @@ class InventarioController extends Controller
 																		'proveedores'=>$proveedores,
 																		'itemMot'=>$itemMot,
 																		'motivos'=>$motivos,
-																		'itemMant'=>$itemMant,
-																		'contratos'=>$contratos
+																		'itemMant'=>$itemMant
 																	]);
 	}
 

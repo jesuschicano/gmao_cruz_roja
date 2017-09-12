@@ -132,6 +132,7 @@ class RevisionController extends Controller
     $revision->ultima_rev = $request->input('rev_actual');
     $revision->prox_rev = $request->input('prox_rev');
     $revision->aviso = $request->input('aviso_rev');
+    $revision->correo = $request->input('correo');
     // volver a comprobar que las fechas están dentro del rango
     if($revision->aviso > $revision->prox_rev){
       return redirect()->back()->with('msg',[]);

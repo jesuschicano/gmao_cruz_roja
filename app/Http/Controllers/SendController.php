@@ -24,18 +24,17 @@ class SendController extends Controller
         new Expression($link.'.jos_huruhelpdesk_places.id')
       )
       ->where([
-      ['aviso', '>', $hoy],
+      ['aviso', '>=', $hoy],
       ['prox_rev', '>', $hoy]
       ])
       ->select('inventario.equipo',
       new Expression($link.'.jos_huruhelpdesk_places.name'),
       'descripcion',
-      'prox_rev'
-      )->get();
+      'prox_rev',
+      'correo')->get();
 
-    foreach ($revisiones as $x) {
-      //dd($x->equipo);
-      return view('emails.correo_aviso',['revisiones'=>$x]);
-    }
+    return view( 'emails.correo_aviso', ['revisiones' => $revisiones] );
+
   }
+
 }

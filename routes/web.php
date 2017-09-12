@@ -82,6 +82,8 @@ Route::post('revisiones/update/{id}', 'RevisionController@update');
 Route::get('revisiones/destroy/{id}', 'RevisionController@destroy');
 
 Route::get('revisiones/download/', 'RevisionController@download');
+// botón para que actulize los envíos de revisiones
+Route::get('enviar', 'SendController@mandarAviso');
 /** END BLOQUE REVISIONES **/
 
 /** BLOQUE DE INFORMES **/
@@ -98,5 +100,3 @@ Route::post('subida/store/{id}', 'ArchivosController@store');
 Route::get('ficheros/get/{filename}', 'ArchivosController@get');
 Route::get('ficheros/show/{id}', 'ArchivosController@show');
 /** END BLOQUE FICHEROS **/
-
-Route::get('/send','SendController@mandarAviso');
