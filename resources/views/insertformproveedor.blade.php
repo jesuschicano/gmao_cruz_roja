@@ -64,6 +64,12 @@
 										<input type="number" maxlength="9" class="form-control" name="telefono" required>
 	                </div>
 	              </div>
+								<div class="form-group">
+	              	<label for="mail" class="col-xs-12 col-md-2">E-mail</label>
+	              	<div class="col-xs-12 col-md-4">
+										<input type="text" class="form-control" name="mail" required>
+	                </div>
+	              </div>
 	              <div class="form-group">
 	              	<label for="comercial" class="col-xs-12 col-md-2">Comercial</label>
 	              	<div class="col-xs-12 col-md-6">

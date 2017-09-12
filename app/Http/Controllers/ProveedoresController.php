@@ -36,6 +36,7 @@ class ProveedoresController extends Controller
 		$proveedor->poblacion = $request->poblacion;
 		$proveedor->provincia = $request->provincia;
 		$proveedor->telefono = $request->telefono;
+		$proveedor->mail = $request->mail;
 		$proveedor->comercial = $request->comercial;
 		$proveedor->observaciones = $request->observaciones;
 		// guardar los datos en la BD
@@ -57,7 +58,7 @@ class ProveedoresController extends Controller
 	**/
 	public function preEdit($id){
 		// se busca el proveedor en la BD
-		// si es solo por primary keys se puede usar 
+		// si es solo por primary keys se puede usar
 		// Eloquent para ejecutar la sentencia find()
 		$proveedor = Proveedor::find($id);
 		if( !empty($proveedor) ){
@@ -78,6 +79,7 @@ class ProveedoresController extends Controller
 		$search->poblacion = $request->poblacion;
 		$search->provincia = $request->provincia;
 		$search->telefono = $request->telefono;
+		$search->mail = $request->mail;
 		$search->comercial = $request->comercial;
 		$search->observaciones = $request->observaciones;
 
