@@ -101,5 +101,9 @@ Route::get('ficheros/get/{filename}', 'ArchivosController@get');
 Route::get('ficheros/show/{id}', 'ArchivosController@show');
 /** END BLOQUE FICHEROS **/
 
-
-Route::get('pedidos/generar', 'PedidosController@generar');
+/** BLOQUE PEDIDOS **/
+Route::resource('pedido', 'CartController', ['only' => ['index','store']]);
+Route::get('carrito', 'CartController@carrito');
+Route::get('carrito/vaciar', 'CartController@destroy');
+Route::get('carrito/enviar/{correo}/{msg}', 'CartController@enviar');
+/** END BLOQUE PEDIDOS **/
