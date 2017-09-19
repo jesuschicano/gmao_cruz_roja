@@ -155,6 +155,12 @@
 									</div>
 	              </div>
 
+								<div class="checkbox">
+									<label>
+										<input type="checkbox" name="grupo" value="1"> Es el padre de un grupo
+									</label>
+								</div>
+
 								<div class="form-group">
 	              	<label for="comentarios" class="col-xs-12 control-label">Comentarios</label>
 									<div class="col-xs-12">

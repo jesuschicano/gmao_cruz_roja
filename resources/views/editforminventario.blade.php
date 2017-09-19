@@ -167,6 +167,16 @@
 									</div>
 	              </div>
 
+								<div class="checkbox">
+									<label>
+										@if($datos->grupo == 1)
+											<input type="checkbox" name="grupo" value="1" checked> Es el padre de un grupo
+										@else
+											<input type="checkbox" name="grupo" value="1"> Es el padre de un grupo
+										@endif
+									</label>
+								</div>
+
 								<div class="form-group">
 	              	<label for="comentarios" class="col-xs-12 control-label">Comentarios</label>
 									<div class="col-xs-12">

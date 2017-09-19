@@ -45,6 +45,17 @@
                 <div class="form-group">
                   <label for="grado">Grado</label>
                   <select name="grado" class="form-control">
+										<option selected value="{{ $revision->grado }}">
+											@if($revision->grado == 1)
+												Primer grado
+											@elseif($revision->grado == 2)
+												Segundo grado
+											@elseif($revision->grado == 3)
+												Tercer grado
+											@else
+												Cuarto grado
+											@endif
+										</option>
                     <option value="1">Primer grado</option>
                     <option value="2">Segundo grado</option>
                     <option value="3">Tercer grado</option>

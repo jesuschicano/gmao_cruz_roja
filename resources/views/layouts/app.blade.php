@@ -31,7 +31,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        <img src="{{URL::asset('/img/logo.png')}}" height="30" alt="logo cruz roja">
+                        <img src="{{URL::asset('/img/logo.png')}}" height="75" alt="logo cruz roja">
                     </a>
                 </div>
 
@@ -45,65 +45,92 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
-                            <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Registro</a></li>
-                        @else
+                          <li><a href="{{ route('login') }}">Login</a></li>
+                          <li><a href="{{ route('register') }}">Registro</a></li>
+                        @elseif(Auth::user()->role == 1)
+                          <li><a href="{{ url('informes') }}">Informes</a></li>
+                          <li>
+                            <a href="{{ url('pedido') }}">
+                              Pedido <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                            </a>
+                          </li>
+                          <li><a href="{{ url('enviar') }}">Actualizar avisos</a></li>
+                          <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                              Insertar <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                              <!-- solo inserciones -->
+                              <li><a href="{{ url('motivos/create') }}">Motivo de baja</a></li>
+                              <li><a href="{{ url('periodicidades/create') }}">Periodo</a></li>
+                              <li><a href="{{ url('proveedores/insert') }}">Proveedor</a></li>
+                              <li><a href="{{ url('inventario/create') }}">Artículo</a></li>
+                            </ul>
+                          </li>
+                          <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                              Listados <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                              <!-- solo los listados -->
+                              <li><a href="{{ url('motivos') }}">Motivos de baja</a></li>
+                              <li><a href="{{ url('periodicidades') }}">Periodos</a></li>
+                              <li><a href="{{ url('proveedores') }}">Proveedores</a></li>
+                              <li><a href="{{ url('revisiones') }}">Revisiones</a></li>
+                              <li><a href="{{ url('problemas/listado') }}">Reporte de problemas</a></li>
+                              <li><a href="{{ url('inventario/old') }}">Artículos Helpdesk</a></li>
+                              <li><a href="{{ url('inventario') }}">Inventario</a></li>
+                              <li><a href="{{ url('grupos')}}">Grupos</a></li>
+                            </ul>
+                          </li>
+
+                          <li class="dropdown">
+                              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                  <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                  {{ Auth::user()->name }} <span class="caret"></span>
+                              </a>
+
+                              <ul class="dropdown-menu" role="menu">
+                                  <li>
+                                      <a href="{{ url('usuarios/list') }}">Gestión usuarios</a>
+                                      <a href="{{ route('logout') }}"
+                                          onclick="event.preventDefault();
+                                                   document.getElementById('logout-form').submit();">
+                                          Salir
+                                      </a>
+
+                                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                          {{ csrf_field() }}
+                                      </form>
+                                  </li>
+                              </ul>
+                          </li>
+                          @elseif(Auth::user()->role == 2)
                             <li><a href="{{ url('informes') }}">Informes</a></li>
                             <li>
-                              <a href="{{ url('pedido') }}">Pedido <span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>
+                              <a href="{{ url('pedido') }}">
+                                Pedido <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                              </a>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    Inventario <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{ url('inventario/old') }}">Ver artículos Helpdesk</a></li>
-                                    <li><a href="{{ url('inventario') }}">Listar</a></li>
-                                    <li><a href="{{ url('inventario/create') }}">Insertar</a></li>
-                                </ul>
-                            </li>
+                            <li><a href="{{ url('enviar') }}">Actualizar avisos</a></li>
+
                             <li class="dropdown">
                               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                Revisiones <span class="caret"></span>
+                                Listados <span class="caret"></span>
                               </a>
                               <ul class="dropdown-menu" role="menu">
-                                <li><a href="{{ url('revisiones') }}">Listar todas</a></li>
-                                <li><a href="{{ url('enviar') }}">Actualizar avisos</a></li>
+                                <!-- solo los listados -->
+                                <li><a href="{{ url('revisiones') }}">Revisiones</a></li>
+                                <li><a href="{{ url('problemas/listado') }}">Reporte de problemas</a></li>
+                                <li><a href="{{ url('inventario') }}">Inventario</a></li>
                               </ul>
                             </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    Proveedores <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{ url('proveedores') }}">Listar</a></li>
-                                    <li><a href="{{ url('proveedores/insert') }}">Añadir</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    Periodicidades <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{ url('periodicidades') }}">Listar</a></li>
-                                    <li><a href="{{ url('periodicidades/create') }}">Insertar</a></li>
-                                </ul>
-                            </li>
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    Motivos de baja <span class="caret"></span>
-                                </a>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{ url('motivos') }}">Listar</a></li>
-                                    <li><a href="{{ url('motivos/create') }}">Insertar</a></li>
-                                </ul>
-                            </li>
+
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                     <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
                                     {{ Auth::user()->name }} <span class="caret"></span>
                                 </a>
-
                                 <ul class="dropdown-menu" role="menu">
                                     <li>
                                         <a href="{{ route('logout') }}"
@@ -111,13 +138,42 @@
                                                      document.getElementById('logout-form').submit();">
                                             Salir
                                         </a>
-
                                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                                             {{ csrf_field() }}
                                         </form>
                                     </li>
                                 </ul>
                             </li>
+                            @elseif(Auth::user()->role == 3)
+                              <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                  Listados <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu" role="menu">
+                                  <!-- solo los listados -->
+                                  <li><a href="{{ url('revisiones') }}">Revisiones</a></li>
+                                  <li><a href="{{ url('tareas/'.Auth::user()->id) }}">Tareas asignadas</a></li>
+                                </ul>
+                              </li>
+
+                              <li class="dropdown">
+                                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+                                      <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                      {{ Auth::user()->name }} <span class="caret"></span>
+                                  </a>
+                                  <ul class="dropdown-menu" role="menu">
+                                      <li>
+                                          <a href="{{ route('logout') }}"
+                                              onclick="event.preventDefault();
+                                                       document.getElementById('logout-form').submit();">
+                                              Salir
+                                          </a>
+                                          <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                              {{ csrf_field() }}
+                                          </form>
+                                      </li>
+                                  </ul>
+                              </li>
                         @endif
                     </ul>
                 </div>

@@ -4,15 +4,11 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Cart;
+use App\Proveedor;
 use App\Inventario;
 
 class CartController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
       $inventario = Inventario::all();
@@ -22,15 +18,10 @@ class CartController extends Controller
     public function carrito(){
       $cartCollection = Cart::getContent();
       $subTotal = Cart::getSubTotal();
-      return view('pedidos.cart', ['carrito' => $cartCollection, 'total' => $subTotal]);
+      $proveedores = Proveedor::all();
+      return view('pedidos.cart', ['carrito' => $cartCollection, 'total' => $subTotal, 'proveedores'=>$proveedores]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
       Cart::add(array(
@@ -43,19 +34,21 @@ class CartController extends Controller
       return redirect('pedido');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy()
     {
       Cart::clear();
       return redirect('carrito');
     }
 
-    public function enviar($correo, $msg){
-      return $correo." ".$msg;
+    public function enviar(Request $request){
+      $mail_destino = $request->input('proveedor');
+      $mail_origen = 'jesus@iniciativasmultimedia.com';
+      $msg = $request->input('msg');
+      $headers = 'From: ' . $mail_origen . "\r\n" .
+      'Reply-To: ' . $mail_origen . "\r\n" .
+      'Content-Type: text/html; charset=UTF-8' . "\r\n" .
+      'X-Mailer: PHP/' . phpversion();// end headers
+      mail($mail_destino, "Pedido a proveedor", $msg, $headers);
+      return redirect('carrito');
     }
 }

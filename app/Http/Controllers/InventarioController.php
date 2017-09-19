@@ -93,6 +93,7 @@ class InventarioController extends Controller
 		$item->importe_contrato = $request->input('importe_contrato');
 		$item->fecha_ini_contrato = $request->input('inicio_contrato');
 		$item->fecha_renovacion_contrato = $request->input('renovacion_contrato');
+		$item->grupo = $request->input('grupo');
 		$item->comentarios = $request->input('comentarios');
 
 		$item->save();
@@ -201,6 +202,7 @@ class InventarioController extends Controller
 		$item->importe_contrato = $request->input('importe_contrato');
 		$item->fecha_ini_contrato = $request->input('inicio_contrato');
 		$item->fecha_renovacion_contrato = $request->input('renovacion_contrato');
+		$item->grupo = $request->input('grupo');
 		$item->comentarios = $request->input('comentarios');
 		$item->save();
 		return redirect('inventario');

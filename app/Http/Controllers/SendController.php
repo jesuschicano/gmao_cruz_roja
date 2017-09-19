@@ -33,7 +33,7 @@ class SendController extends Controller
       'prox_rev',
       'correo')->get();
 
-    return view( 'emails.correo_aviso', ['revisiones' => $revisiones] );
+    return view('emails.correo_aviso', ['revisiones' => $revisiones]);
 
   }
 

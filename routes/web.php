@@ -105,5 +105,35 @@ Route::get('ficheros/show/{id}', 'ArchivosController@show');
 Route::resource('pedido', 'CartController', ['only' => ['index','store']]);
 Route::get('carrito', 'CartController@carrito');
 Route::get('carrito/vaciar', 'CartController@destroy');
-Route::get('carrito/enviar/{correo}/{msg}', 'CartController@enviar');
+Route::post('carrito/enviar', 'CartController@enviar');
 /** END BLOQUE PEDIDOS **/
+
+/** BLOQUE DE USUARIOS **/
+Route::get('usuarios/list', 'ControlUsuariosController@listAll');
+Route::get('usuarios/destroy/{id}', 'ControlUsuariosController@destroy');
+Route::get('usuarios/modify/{id}', 'ControlUsuariosController@modify');
+Route::post('usuarios/update/{id}', 'ControlUsuariosController@update');
+/** END BLOQUE USUARIOS **/
+
+/** BLOQUE DE GRUPOS **/
+Route::get('grupos', 'GruposController@index');
+Route::get('grupos/{id}', 'GruposController@edit');
+Route::get('grupos/add/{padre}/{hijo}', 'GruposController@add');
+Route::get('grupos/remove/{padre}/{hijo}', 'GruposController@remove');
+/** END BLOQUE DE GRUPOS **/
+
+/** BLOQUE TAREAS **/
+Route::get('tareas/add/{id}', 'TareasController@add');
+Route::post('tareas/store', 'TareasController@store');
+Route::get('tareas/modify/{id}', 'TareasController@modify');
+Route::post('tareas/update', 'TareasController@update');
+Route::get('tareas/destroy/{id}', 'TareasController@destroy');
+// muestra tareas según usuario
+Route::get('tareas/{user}', 'TareasController@asignadas');
+Route::get('tareas/check/{id_item}/{id_user}', 'TareasController@check');
+// ----Dentro de las tareas hay problemas --->
+Route::get('tareas/problema/{id_tarea}', 'ProblemasController@create');
+Route::post('tareas/problema/store', 'ProblemasController@store');
+Route::get('problemas/listado', 'ProblemasController@index');
+Route::get('problemas/listado/destroy/{id}', 'ProblemasController@destroy');
+/** END BLOQUE TAREAS**/

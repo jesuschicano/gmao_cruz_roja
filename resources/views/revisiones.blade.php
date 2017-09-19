@@ -14,6 +14,7 @@
 		<h1 class="text-center">Listado de revisiones</h1>
 		<table class="table" id="misRevisiones">
 			<thead>
+				<th>#</th>
 				<th>Equipo</th>
         <th>Descripción</th>
         <th>Grado</th>
@@ -23,7 +24,19 @@
         <th>Aviso</th>
 			</thead>
       @foreach($revisiones as $rev)
+				@php
+					$hoy = date('Y-m-d');
+				@endphp
         <tr>
+					<td class="casilla">
+						@if( ($hoy>$rev->ultima_rev) AND ($hoy>=$rev->prox_rev) )
+							3
+						@elseif( ($rev->aviso<=$hoy) AND ($rev->prox_rev>$hoy) )
+							2
+						@elseif( ($rev->ultima_rev<=$hoy) AND ($rev->aviso>$hoy) )
+							1
+						@endif
+					</td>
           <td>{{ $rev->equipo }}</td>
           <td>{{ $rev->descripcion }}</td>
           <td>{{ $rev->grado }}</td>
@@ -67,6 +80,19 @@
           }
         }
       });
+
+			// CAMBIO DE COLORES PARA LAS COLUMNAS
+			// recorrer todos los valores del DOM
+			$(".casilla").each(function() {
+				// cambiar el color en función del contenido
+				$(".casilla:contains('1')").css('background', '#449D44');// verde
+				$(".casilla:contains('1')").text("");
+				$(".casilla:contains('2')").css('background', '#F0AD4E');// amarillo
+				$(".casilla:contains('2')").text("");
+				$(".casilla:contains('3')").css('background', '#D9534F');// rojo
+				$(".casilla:contains('3')").text("");
+			});
+
     });
   </script>
 @endpush

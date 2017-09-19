@@ -18,17 +18,31 @@
   </div>
 
   <?php
-    $msg = "";
+    $msg = null;
     foreach ($carrito as $y) {
       $cantidad = $y->quantity;
       $equipo = $y->name;
       $precio = $y->price;
 
-      $msg = $msg.' '.$cantidad.' x '.$equipo.' - '.$precio.' €/u'. "<br>";
+      $msg = $msg.' '.$cantidad.' x '.$equipo.' - '.$precio.' €/u'. "\r\n";
     }
-    echo $msg;
   ?>
-  <a href="{{url('carrito/enviar/jesus@kk/pijo')}}" class="btn btn-success">Enviar al proveedor</a>
+
+  <form action="carrito/enviar" method="post">
+    {{csrf_field()}}
+    <textarea name="msg" class="hidden">
+      {{$msg}}
+    </textarea>
+    <div class="form-group">
+      <label for="" class="control-label">Escoja un proveedor al que realizar el pedido</label>
+      <select class="form-control" name="proveedor">
+        @foreach($proveedores as $proveedor)
+          <option value="{{$proveedor->mail}}">[{{$proveedor->codigo}}]{{$proveedor->nombre}}</option>
+        @endforeach
+      </select>
+    </div>
+    <input type="submit" value="Enviar" class="btn btn-success">
+  </form>
 
 </div>
 @endsection

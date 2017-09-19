@@ -36,6 +36,9 @@
 						<a href="ficheros/show/{{ $x->id }}" class="btn btn-primary" title="Ver ficheros">
 							<span class="glyphicon glyphicon-file" aria-hidden="true"></span>
 						</a>
+						<a href="tareas/add/{{ $x->id }}" class="btn btn-default" title="Tareas">
+							<span class="glyphicon glyphicon-list" aria-hidden="true"></span>
+						</a>
 						<a href="revisiones/{{ $x->id }}" class="btn btn-info" title="Revisiones">
 							<span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
 						</a>
